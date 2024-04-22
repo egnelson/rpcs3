@@ -348,7 +348,7 @@ EmuCallbacks main_application::CreateCallbacks()
 	callbacks.resolve_path = [](std::string_view sv)
 	{
 		// May result in an empty string if path does not exist
-		return QFileInfo(QString::fromUtf8(sv.data(), static_cast<int>(sv.size()))).canonicalFilePath().toStdString();
+		return QFileInfo(QString::fromUtf8(sv.data(), static_cast<int>(sv.size()))).absoluteFilePath().toStdString();
 	};
 
 	callbacks.get_font_dirs = []()
